@@ -9,6 +9,6 @@ Completed:
 
 <table>
   <tr>
-    <td><b>1</b></td><td><b>2</b></td><td><b>3</b></td><td>4</td><td><b>5</b></td>
+    <td><u>1</u></td><td><u>2</u></td><td><u>3</u></td><td>4</td><td><u>5</u></td>
   </tr>
 </table>
