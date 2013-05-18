@@ -4,8 +4,37 @@ PROGRAM-ID. EULER5.
 DATA DIVISION.
 WORKING-STORAGE SECTION.
     77 TOTAL PIC 9(10).
-    
+    01 PRIMES.
+        03 P PIC 99
+            OCCURS 8 TIMES.
+    77 I PIC 9.
+    77 LOG PIC 9.
+    77 J PIC 9.
+    77 RES PIC 99.
 PROCEDURE DIVISION.
 MAINLINE.
-    DISPLAY "Product of p * floor(log_p (20)) for p prime."
+    SET I TO 1.
+    SET TOTAL TO 1.
+    PERFORM INIT-PRIMES.
+    PERFORM UNTIL I = 9
+        SET RES TO 1
+        COMPUTE LOG = FUNCTION INTEGER ( FUNCTION LOG ( 20 ) / FUNCTION LOG ( P(I) ) )
+        PERFORM UNTIL J = LOG
+            MULTIPLY P(I) BY RES
+        END-PERFORM
+        MULTIPLY RES BY TOTAL GIVING TOTAL
+        ADD 1 TO I
+        DISPLAY TOTAL
+    END-PERFORM.
+    DISPLAY TOTAL.
     STOP-RUN.
+    
+INIT-PRIMES.
+    SET P(1) TO 2.
+    SET P(2) TO 3.
+    SET P(3) TO 5.
+    SET P(4) TO 7.
+    SET P(5) TO 11.
+    SET P(6) TO 13.
+    SET P(7) TO 17.
+    SET P(8) TO 19.
