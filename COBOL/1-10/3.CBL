@@ -1,0 +1,34 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. EULER3.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+    77 N PIC 9(12).
+    77 I PIC 9(7).
+    77 R PIC 9(7).
+    77 DONE PIC 9.
+PROCEDURE DIVISION.
+MAINLINE.
+    SET R TO 1.
+    SET I TO 2.
+    SET N TO 600851475143.
+    PERFORM FACTOR.
+    DISPLAY "..."
+    DISPLAY N.
+    DISPLAY "DONE".
+    STOP RUN.
+FACTOR.
+    PERFORM WITH TEST BEFORE UNTIL DONE = 1
+        COMPUTE R = FUNCTION REM(N,I)
+        IF R = 0 THEN
+            DIVIDE I INTO N GIVING N
+            ADD 1 TO DONE
+            DISPLAY N
+        ELSE
+            IF I > 600851475143 ** 0.5 THEN
+                ADD 1 TO DONE
+            ELSE
+                ADD 1 TO I
+            END-IF
+        END-IF
+    END-PERFORM.
