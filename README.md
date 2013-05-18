@@ -1,6 +1,6 @@
-EulerCOBOL
-==========
+Euler
+=====
 
-Project Euler solutions in COBOL.
+by 6c1
 
-Using http://www.compileonline.com/compile_cobol_online.php for compilation.
+Project Euler solutions in various languages.
