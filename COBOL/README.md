@@ -9,11 +9,11 @@ Completed:
 
 <table>
   <tr>
-    <td><b>1</b></td>
-    <td><b>2</b></td>
-    <td><b>3</b></td>
+    <td><b><del>1</del></b></td>
+    <td><b><del>2</del></b></td>
+    <td><b><del>3</del></b></td>
     <td>4</td>
-    <td><b>5</b></td>
+    <td><b><del>5</del></b></td>
     <td>6</td>
     <td>7</td>
     <td>8</td>
