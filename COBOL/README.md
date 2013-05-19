@@ -14,5 +14,10 @@ Completed:
     <td><b>3</b></td>
     <td>4</td>
     <td><b>5</b></td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>10</td>
   </tr>
 </table>
