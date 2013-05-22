@@ -5,9 +5,6 @@ maxprod = 0
 for i in xrange(len(bignum) - 4):
     cur = bignum[i:i+5]
     prod = 1
-    for j in xrange(5):
-        prod *= int(cur[j])
-    if (maxprod<prod):
-        maxprod=prod
-        print prod
+    for j in xrange(5): prod *= int(cur[j])
+    if (maxprod<prod): maxprod=prod
 print maxprod
