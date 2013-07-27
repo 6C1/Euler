@@ -1,7 +1,11 @@
 import math
 
 def main():
-  data = load_data()
+  raw_data = load_data()
+  data = []
+  for line in raw_data:
+    data.append(int(line) % 10**10)
+  print data
 
 def load_data():
   return '''37107287533902102798797998220837590246510135740250
