@@ -8,3 +8,4 @@ Project Euler solutions in various languages.
 So far:
 
 - COBOL
+- Python
