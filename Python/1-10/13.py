@@ -3,8 +3,9 @@ import math
 def main():
   raw_data = load_data()
   data = []
-  for line in raw_data:
-    data.append(int(line) % 10**10)
+  for line in raw_data.split():
+    print ">>", line
+    data.append(int(line[-10:]))
   print data
 
 def load_data():
