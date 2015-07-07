@@ -9,3 +9,4 @@ So far:
 
 - COBOL
 - Python
+- Scala
