@@ -2,11 +2,11 @@
 def main(): Int = {
 
   def loop(secondToLast: Int = 0, last: Int = 1, sum: Int = 0): Int = {
-    val curr = secondToLast + last
-    if (curr < 4000000) {
-      if (curr % 2 == 0) loop(last, curr, sum + curr)
-      else loop(last, curr, sum)
-    } else sum
+    secondToLast + last match {
+      case c if c % 2 == 0 && c < 4000000 => loop(last, c, c + sum)
+      case c if c < 4000000 => loop(last, c, sum)
+      case _ => sum
+    }
   }
 
   loop()
