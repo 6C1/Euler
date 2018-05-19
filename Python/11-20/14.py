@@ -1,61 +1,18 @@
-import datetime
-
-TAB = '\t'
-
-
-class Collatz(dict):
-
-    def __init__(self, *args, **kwargs):
-        self.maxkey = 0
-        super(Collatz, self).__init__(*args, **kwargs)
-        self.update({0: 0, 1: 1})
-
-    def __setitem__(self, key, item):
-        if item > self.maxval:
-            self.maxkey = key
-        super(Collatz, self).__setitem__(key, item)
-
-    def __getitem__(self, i):
-        if i not in self:
-            self[i] = self[self.collatz(i)] + 1
-        return super(Collatz, self).__getitem__(i)
-
-    @staticmethod
-    def collatz(i):
-        return (i // 2) if (i % 2 == 0) else (3 * i + 1)
-
-    @property
-    def maxval(self):
-        return self[self.maxkey]
-
-    @classmethod
-    def main(cls, exp, verbose=False):
-        now = datetime.datetime.utcnow()
-        collatz = cls()
-        upper_limit = 10 ** exp
-        for i in range(1, upper_limit):
-            if i not in collatz:
-                _ = collatz[i]
-                if verbose:
-                    print(
-                        len(collatz),
-                        int(1000 * len(collatz) / i) / 1000,
-                        TAB,
-                        i,
-                        TAB,
-                        collatz[i],
-                        TAB,
-                        collatz.collatz(i),
-                        collatz[collatz.collatz(i)],
-                    )
-        print(TAB, collatz.maxkey, collatz.maxval)
-        duration = datetime.datetime.utcnow() - now
-        print(TAB, duration, duration / upper_limit)
+def longest_chain():
+    max_key = 1
+    upper_bound = 10 ** 6 - 1
+    cache = {1: 1}
+    for k in range(upper_bound, upper_bound // 2, -2):
+        if k not in cache:
+            a = [int(k)]
+            while a[-1] not in cache:
+                a += [(a[-1] // 2) if (a[-1] % 2 == 0) else (3 * a[-1] + 1)]
+            for c, n in enumerate(a[::-1]):
+                cache[n] = c + 1 + cache[a[-1]]
+            if cache[k] > cache[max_key]:
+                max_key = k
+    print(max_key)
 
 
 if __name__ == '__main__':
-    for limit in range(1, 7):
-        if limit:
-            print('-' * 7)
-        print('N =', limit)
-        Collatz.main(limit)
+    longest_chain()
